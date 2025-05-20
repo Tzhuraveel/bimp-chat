@@ -1,7 +1,7 @@
 import Fastify from 'fastify';
 
 import fastifyMultipart, { ajvFilePlugin } from '@fastify/multipart';
-import { appConfig } from './common/config/configuration.js';
+import { appConfig } from './config/configuration.js';
 
 import errorHandlerPlugin from './common/plugins/error-handler.plugin.js';
 
