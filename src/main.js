@@ -46,7 +46,7 @@ await fastify.register(fastifySwaggerUi, {
 
 
 fastify.register(errorHandlerPlugin);
-fastify.register(authController, { prefix: 'auth' })
+fastify.register(authController, { prefix: 'account' })
 fastify.register(messageController, { prefix: 'message' })
 
 
