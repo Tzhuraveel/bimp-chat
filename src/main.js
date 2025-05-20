@@ -21,7 +21,7 @@ await fastify.register(fastifySwagger, {
   openapi: {
     openapi: '3.0.0',
     info: { title: 'Bimp Chat API', version: '1.0.0' },
-    servers: [{ url: `http://localhost:${appConfig.port}` }],
+    servers: [{ url: `http://${appConfig.host}:${appConfig.port}` }],
     components: {
       securitySchemes: {
         basicAuth: { type: 'http', scheme: 'basic' }   
