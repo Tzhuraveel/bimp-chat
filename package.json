@@ -1,0 +1,35 @@
+{
+  "name": "bimp",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "start:dev": "nodemon src/main.js",
+    "start:prod": "node src/main.js",
+    "docker:local": "docker-compose -f docker-compose-local.yml up -d --build",
+    "migration:generate": "prisma migrate dev --schema=./src/database --create-only && prisma generate --schema=./src/database",
+    "migration:run": "prisma migrate dev --schema=./src/database"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@fastify/autoload": "^6.3.0",
+    "@fastify/multipart": "^9.0.3",
+    "@fastify/swagger": "^9.5.1",
+    "@fastify/swagger-ui": "^5.2.2",
+    "@prisma/client": "^6.8.2",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.5.0",
+    "fastify": "^5.3.3",
+    "fastify-plugin": "^5.0.1",
+    "prisma": "^6.8.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "prisma": {
+    "schema": "./src/database"
+  }
+}

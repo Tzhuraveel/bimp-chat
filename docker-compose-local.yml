@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres
+    container_name: bimp_postgres
+    environment:
+      POSTGRES_USER: bimp
+      POSTGRES_PASSWORD: bimp
+      POSTGRES_DB: bimp
+    ports:
+      - '5436:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
