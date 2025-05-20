@@ -16,7 +16,7 @@ class AuthService {
     return user
   }
 
-  async verifyAndGetUser(username, password) {
+  async authenticate(username, password) {
     const user = await userService.findOneByUsername(username)
     if (!user) return null;
 

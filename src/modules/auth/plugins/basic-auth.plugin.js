@@ -18,7 +18,7 @@ export default fp(async function basicAuthPlugin(fastify) {
       .split(':');
 
 
-    const user = await authService.verifyAndGetUser(login, password);
+    const user = await authService.authenticate(login, password);
     if (!user) {
       throw new HttpError(401, 'Invalid credentials')
     }
