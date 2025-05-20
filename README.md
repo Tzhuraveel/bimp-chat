@@ -1,7 +1,7 @@
 # Bimp Chat API
 
 A lightweight RESTful chat service built with **Fastify**, **Prisma** and **PostgreSQL**.  
-The API supports Basic Authentication, text/file messages, and cursor-style pagination.  
+The API supports Basic Authentication and text/file messages.  
 A live, interactive specification is available through Swagger UI.
 
 ---
