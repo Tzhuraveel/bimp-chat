@@ -53,16 +53,16 @@ class MessageService {
   }
 
   async createTextMessage(user, body) {
-    await this.messageRepository.create({userId: user.id, type: MessageTypes.TEXT, ...body})
+    const message = await this.messageRepository.create({userId: user.id, type: MessageTypes.TEXT, ...body})
 
-    return { success: true }
+    return message
   }
 
 
   async createFileMessage(userId, file) {
-    const filepath = await this.fileStorageService.save(file, 'chat', userId)
+    const filepath = await this.fileStorageService.save(file, userId)
 
-    await this.messageRepository.create({
+    const message = await this.messageRepository.create({
       userId, 
       filename: file.filename,
       mimetype: file.mimetype,
@@ -70,7 +70,7 @@ class MessageService {
       type: MessageTypes.FILE, 
     })
 
-    return { success: true } 
+    return message
   }
 
   async getOneByIdOrThrow(id) {

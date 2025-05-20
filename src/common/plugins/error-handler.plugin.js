@@ -7,7 +7,7 @@ export default fp(async function simpleErrorHandler (fastify) {
     let message = err.message || 'Unexpected error';
     let error = 'Internal Server Error';
     let statusCode = err.statusCode || 500;
-    
+
     if (err.validation) {
       error = 'Bad Request',
       message = err.message

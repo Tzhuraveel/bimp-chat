@@ -21,7 +21,6 @@ export const getMessageContentByIdSchema = {
         }
       },
     },
-    404: { description: 'Message not found' }
   },
   tags: ['Message'],
   summary: 'Get raw content'

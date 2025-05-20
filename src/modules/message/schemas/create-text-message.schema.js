@@ -10,7 +10,7 @@ export const createTextMessageSchema = {
     201: {
       type: 'object',
       properties: {
-        success: { type: 'boolean' },
+        id: { type: 'integer' },
       }
     }
   },

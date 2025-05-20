@@ -16,10 +16,10 @@ class FileStorageService {
     }
   }
 
-  buildPathForUpdate(fileName, itemType, itemId) {
+  buildPathForUpdate(fileName, itemId) {
     const extension = extname(fileName);
     const uniqueName = `${randomUUID()}${extension}`;
-    return path.join(itemType, itemId.toString(), uniqueName);
+    return path.join(itemId.toString(), uniqueName);
   }
 
   read(relativePath) {
@@ -32,8 +32,8 @@ class FileStorageService {
     return fs.createReadStream(absolutePath);
   } 
 
-  async save(file, itemType, itemId) {
-    const relativePath = this.buildPathForUpdate(file.filename, itemType, itemId);
+  async save(file, itemId) {
+    const relativePath = this.buildPathForUpdate(file.filename, itemId);
     const absolutePath = path.join(this.baseDir, relativePath);
 
     const dir = path.dirname(absolutePath);

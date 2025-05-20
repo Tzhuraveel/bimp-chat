@@ -31,7 +31,7 @@ await fastify.register(fastifySwagger, {
       {
         basicAuth: []
       }
-    ]
+    ],
   }
 });
 
@@ -42,9 +42,7 @@ await fastify.register(fastifySwaggerUi, {
   }
 });
 
-fastify.register(fastifyMultipart, {
-  addToBody: true
-});
+fastify.register(fastifyMultipart);
 fastify.register(errorHandlerPlugin);
 fastify.register(authController, { prefix: 'auth' })
 fastify.register(messageController, { prefix: 'message' })

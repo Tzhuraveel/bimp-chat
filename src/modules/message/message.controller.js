@@ -30,7 +30,7 @@ export const messageController = async (fastify) => {
       schema: createFileMessageSchema,
     }, 
     async (req, reply) => {
-      const data = await req.file({limits: { files: 1 }})
+      const data = await req.file()
 
       const result = await messageService.createFileMessage(req.user.id, data)
 
