@@ -17,6 +17,8 @@ const fastify = Fastify({
   }
 });
 
+fastify.register(fastifyMultipart);
+
 await fastify.register(fastifySwagger, {
   openapi: {
     openapi: '3.0.0',
@@ -42,7 +44,7 @@ await fastify.register(fastifySwaggerUi, {
   }
 });
 
-fastify.register(fastifyMultipart);
+
 fastify.register(errorHandlerPlugin);
 fastify.register(authController, { prefix: 'auth' })
 fastify.register(messageController, { prefix: 'message' })

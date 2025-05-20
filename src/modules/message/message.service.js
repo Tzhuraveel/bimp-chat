@@ -60,6 +60,10 @@ class MessageService {
 
 
   async createFileMessage(userId, file) {
+    if (!file) {
+      throw new HttpError(400, 'File is required')
+    }
+      
     const filepath = await this.fileStorageService.save(file, userId)
 
     const message = await this.messageRepository.create({

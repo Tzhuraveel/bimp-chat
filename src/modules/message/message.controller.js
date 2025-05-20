@@ -19,22 +19,23 @@ export const messageController = async (fastify) => {
   });
 
   fastify.post('/text', { schema: createTextMessageSchema }, async (req, reply) => {
-    const result = await messageService.createTextMessage(req.user, req.body)
+    const message = await messageService.createTextMessage(req.user, req.body)
 
-    reply.code(201).send(result);
+    reply.code(201).send(message);
   });
 
   fastify.post(
     '/file', 
     { 
       schema: createFileMessageSchema,
+      validatorCompiler: () => () => true,
     }, 
     async (req, reply) => {
       const data = await req.file()
 
-      const result = await messageService.createFileMessage(req.user.id, data)
+      const message = await messageService.createFileMessage(req.user.id, data)
 
-      reply.code(201).send(result);
+      reply.code(201).send(message);
     }, 
   );
 }
