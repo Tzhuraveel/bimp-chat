@@ -54,10 +54,8 @@ async function startServer() {
 
     await fastify.listen({ port: appConfig.port, host: appConfig.host });
 
-    const addressObject = fastify.server.address();
-
-    console.log(`Server is running on http://${addressObject.address}:${addressObject.port}`);
-    console.log(`Swagger is running on http://${addressObject.address}:${addressObject.port}/docs`);
+    console.log(`Server is running on http://${appConfig.host}:${appConfig.port}`);
+    console.log(`Swagger is running on http://${appConfig.host}:${appConfig.port}/docs`);
 
   } catch (err) {
     console.error(err.message)
